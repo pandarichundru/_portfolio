@@ -1,7 +1,7 @@
 /* Import the Pacifico monoline script font */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-/* Full-screen flex center  black background */
+/* Full-screen flex center + black background */
 body,
 .container {
   margin: 0;
@@ -15,31 +15,38 @@ body,
   flex-direction: column; /* Added to stack SVG and button if container wraps them */
 }
 
-/* SVG container sizing */
+/* SVG sizing */
 .hello-svg {
-  width: 90%; /* Use a percentage of its container */
-  max-width: 700px; /* Increased max-width for larger text */
-  height: auto; /* Let height adjust automatically */
+  width: 100%;
+  max-width: 600px;
 }
 
 /* Monoline font + stroke-dash draw animation + fill-in */
 .hello-svg text {
   font-family: 'Pacifico', cursive;
-  font-size: 20vw; /* Increased from 18vw */
-  /* You might want a max-font-size for very large screens if 20vw becomes too big */
-  /* max-font-size: 150px; (optional, if it gets too big on desktop with vw) */
+  /* Adjust the vw value as needed. Start with something like 15vw or 20vw */
+  font-size: 18vw; /* Example: 18% of viewport width */
+  /* You might want a max-font-size for very large screens if 18vw becomes too big */
+  /* max-font-size: 120px; (optional, if it gets too big on desktop with vw) */
   fill: #fff;
   fill-opacity: 0;
   stroke: #fff;
-  stroke-width: 3; /* Increased from 2.5 */
+  /* Consider making stroke-width slightly smaller or responsive too if needed */
+  stroke-width: 2.5; /* Example: thinner stroke, adjust as you see fit */
   stroke-linecap: round;
   stroke-linejoin: round;
-  /* IMPORTANT: Test this value. May need adjustment based on the new font size. */
-  stroke-dasharray: 1200; /* Increased from 800 */
-  stroke-dashoffset: 1200; /* Increased from 800 */
+  stroke-dasharray: 800; /* You might need to adjust this if the path length changes significantly with font size. Test it. */
+  stroke-dashoffset: 800;
   animation:
     draw-on 5s ease-out forwards,
     fill-in 0.5s ease-in 5s forwards;
+}
+
+/* Ensure the SVG container itself scales nicely */
+.hello-svg {
+  width: 90%; /* Use a percentage of its container */
+  max-width: 600px; /* Keep the max-width for desktop */
+  height: auto; /* Let height adjust automatically */
 }
 
 @keyframes draw-on {
@@ -54,23 +61,23 @@ body,
   }
 }
 
-/* “View Portfolio” button base style */
+/* “View Portfolio” button, bottom-center */
 .get-started {
   position: absolute;
   bottom: 10%;
-  padding: 1rem 2.2rem; /* Increased padding */
-  font-size: 1.5rem;    /* Increased font size */
-  font-weight: bold;
+  /* Increased base padding and font-size */
+  padding: 1rem 2.25rem; /* Increased padding */
   border: 2px solid #fff;
   border-radius: 9999px; /* pill shape */
   background: #fff;
   color: #000;
+  font-size: 1.25rem; /* Increased font size */
+  font-weight: bold;
   cursor: pointer;
+  text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
-  /* Ensure it's hidden initially if JS relies on .hidden class being there first */
-  opacity: 0;
-  pointer-events: none;
 }
+
 
 /* Media Query for Mobile Devices */
 @media (max-width: 600px) { /* Adjust breakpoint as needed (e.g., 768px for tablets and phones) */
@@ -81,27 +88,27 @@ body,
   }
 
   .get-started {
-    font-size: 1.1rem;  /* This will now be smaller than the base style, which is correct for mobile */
-    padding: 0.85rem 1.8rem; /* Adjust padding for mobile */
+    font-size: 1.15rem;  /* Adjusted font size for medium screens (larger than before) */
+    padding: 0.9rem 2rem; /* Adjusted padding for medium screens */
     /* You could also make its width a percentage if needed */
-    /* width: 60%; */
-    /* max-width: 280px; */
+    /* width: 70%; */
+    /* max-width: 300px; */
   }
 }
 
 /* You can add another breakpoint for very small phones if necessary */
 @media (max-width: 400px) {
   .hello-svg text {
-    font-size: 18vw; /* Further adjust vw or set a smaller fixed size (was 16vw, adjusted slightly) */
+    font-size: 16vw; /* Further adjust vw or set a smaller fixed size */
     /* stroke-width: 1.5; */
   }
   .get-started {
-    font-size: 1rem; /* Or adjust as needed */
-    padding: 0.75rem 1.6rem; /* Adjusted slightly */
+    font-size: 1.05rem; /* Adjusted font size for small screens (larger than before) */
+    padding: 0.8rem 1.7rem; /* Adjusted padding for small screens */
   }
 }
 
-/* Hover & active effects for .get-started */
+/* Hover & active effects */
 .get-started:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(255,255,255,0.8);
@@ -113,10 +120,10 @@ body,
 
 /* Utility classes for show/hide */
 .hidden {
-  opacity: 0 !important; /* Ensure it overrides base opacity if button starts visible */
-  pointer-events: none !important;
+  opacity: 0;
+  pointer-events: none;
 }
-.visible {
-  opacity: 1 !important;
-  pointer-events: auto !important;
+.visible { /* Ensure this class is used by your JS to show the button */
+  opacity: 1;
+  pointer-events: auto;
 }
