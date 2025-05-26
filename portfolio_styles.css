@@ -1,0 +1,294 @@
+/* Base Reset & Typography */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body.menu-open {
+    overflow-y: hidden; /* Prevent body scroll when mobile menu is open */
+}
+
+
+/* HERO SECTION */
+.hero-section {
+    background: linear-gradient(180deg, #000, #1a1a1a);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* GENERAL SECTION */
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* CARD STYLES */
+.card-base {
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+                box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.card-base:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+.project-card,
+.experience-card,
+.certification-card {
+    /* inherits from .card-base */
+}
+
+/* NAVBAR */
+.navbar {
+    background: rgba(20, 20, 20, 0.8); /* Slightly darker and more opaque */
+    backdrop-filter: blur(16px) saturate(180%); /* Stronger blur */
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure navbar is on top */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Subtler border */
+}
+
+
+/* NAV LINKS */
+.nav-link { /* Desktop nav links */
+    color: #f5f5f7;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 8px 0;
+    position: relative;
+}
+.nav-link:hover {
+    color: #2997ff; /* Apple blue */
+    transform: scale(1.05);
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2997ff;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 60%;
+}
+
+/* APPLE-LIKE HAMBURGER ICON STYLES */
+#apple-menu-btn {
+    width: 28px; /* Adjust size as needed */
+    height: 22px; /* Adjust size as needed */
+    position: relative;
+    cursor: pointer;
+    /* Tailwind's z-50 should cover this, but added for explicitness */
+    z-index: 1002; /* Ensure it's above mobile menu backdrop but below opened menu content if needed */
+    padding: 0; /* Remove default button padding */
+    background: transparent; /* Remove default button background */
+    border: none; /* Remove default button border */
+}
+
+.hamburger-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 2.5px; /* Thickness of lines */
+    background-color: #ffffff; /* White lines */
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); /* Smooth transition */
+}
+
+/* Hamburger to X animation */
+#apple-menu-btn.active .hamburger-icon span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg); /* Adjust Y based on height and span thickness */
+}
+
+#apple-menu-btn.active .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px); /* Optional: slide out middle bar */
+}
+
+#apple-menu-btn.active .hamburger-icon span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg); /* Adjust Y based on height and span thickness */
+}
+
+/* APPLE-LIKE MOBILE MENU */
+#apple-mobile-menu {
+    /* transform translate-x-full is handled by Tailwind in HTML */
+    /* transition-transform duration-500 ease-in-out is handled by Tailwind in HTML */
+    /* z-index is z-40 in HTML */
+    padding-top: 80px; /* Space for the navbar */
+}
+
+#apple-mobile-menu.open {
+    transform: translateX(0%);
+}
+
+.mobile-nav-link {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    color: #e0e0e0; /* Lighter gray for text */
+}
+
+#apple-mobile-menu.open .mobile-nav-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for mobile links */
+#apple-mobile-menu.open .mobile-nav-link:nth-child(1) { transition-delay: 0.2s; }
+#apple-mobile-menu.open .mobile-nav-link:nth-child(2) { transition-delay: 0.25s; }
+#apple-mobile-menu.open .mobile-nav-link:nth-child(3) { transition-delay: 0.3s; }
+#apple-mobile-menu.open .mobile-nav-link:nth-child(4) { transition-delay: 0.35s; }
+#apple-mobile-menu.open .mobile-nav-link:nth-child(5) { transition-delay: 0.4s; }
+#apple-mobile-menu.open .mobile-nav-link:nth-child(6) { transition-delay: 0.45s; }
+#apple-mobile-menu.open .mobile-nav-link:nth-child(7) { transition-delay: 0.5s; }
+
+.mobile-nav-link:hover {
+    color: #2997ff; /* Apple blue for hover */
+}
+
+
+/* FADE-IN ANIMATIONS */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1),
+                transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* PULSE ON LOAD */
+@keyframes pulse {
+    0%   { transform: scale(1);   box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+    70%  { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+.pulse-on-load {
+    animation: pulse 2s ease-out 1;
+}
+
+/* HOVER BOUNCE ON CLICK */
+@keyframes bounce-click {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+.hover-bounce:active {
+    animation: bounce-click 0.3s ease;
+}
+
+/* SOCIAL ICONS */
+.social-icon {
+    transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275),
+                opacity 0.4s ease,
+                color 0.3s ease;
+}
+.social-icon:hover {
+    transform: scale(1.25) rotate(8deg);
+    opacity: 0.85;
+}
+
+/* CONTACT FORM */
+.contact__form input[type="text"],
+.contact__form input[type="email"],
+.contact__form textarea {
+    background-color: #ffffff;
+    border: 1px solid #d1d1d1;
+    border-radius: 12px;
+    padding: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
+    width: 100%;
+}
+.contact__form input[type="text"]:focus,
+.contact__form input[type="email"]:focus,
+.contact__form textarea:focus {
+    border-color: #2997ff;
+    box-shadow: 0 0 0 3px rgba(41,151,255,0.3);
+    outline: none;
+}
+.contact__form .button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.contact__form .button:hover {
+    transform: translateY(-2px);
+}
+.contact__form .button:active {
+    transform: translateY(0px) scale(0.98);
+}
+
+/* SKILL CARDS */
+.skill-card {
+    background-color: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+.skill-card .text-5xl {
+    transition: transform 0.3s ease;
+}
+.skill-card:hover .text-5xl {
+    transform: scale(1.1);
+}
+
+/* ABOUT TEXT JUSTIFY */
+.about-text p {
+    text-align: justify;
+}
+
+/* RESPONSIVE HERO BUTTONS */
+@media (max-width: 768px) {
+    .hero-buttons-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .hero-buttons-container a {
+        width: 80%;
+        max-width: 300px;
+    }
+    .navbar {
+        /* Ensure padding for the hamburger button */
+        padding-right: 1rem; /* Or adjust as needed */
+    }
+    .navbar .max-w-6xl {
+        padding-right: 0; /* Reset padding on container if hamburger is outside */
+    }
+}
