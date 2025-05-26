@@ -84,18 +84,5 @@ body,
   opacity: 1;
   pointer-events: auto;
 }
-/* Add this to your CSS */
-.hello__svg {
-  fill:none; /* Existing styles */
-  stroke:#fff; /* Existing styles */
-  stroke-linecap:round; /* Existing styles */
-  stroke-miterlimit:10; /* Existing styles */
-  stroke-width:35px; /* Existing styles */
-  animation: myNewAnimation 5s infinite alternate; /* Example CSS animation */
-}
 
-@keyframes myNewAnimation {
-  from { transform: scale(1); opacity: 1; }
-  to { transform: scale(1.2); opacity: 0.8; }
-}
 
