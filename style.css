@@ -12,37 +12,34 @@ body,
   align-items: center;
   background: black;
   overflow: hidden;
-  flex-direction: column; /* Stacks SVG and button vertically */
+  flex-direction: column; /* Added to stack SVG and button if container wraps them */
 }
 
 /* SVG container sizing */
 .hello-svg {
-  width: 90%; /* Use a percentage of its container for responsiveness */
-  max-width: 600px; /* Max-width for desktop */
+  width: 90%; /* Use a percentage of its container */
+  max-width: 700px; /* Increased max-width for larger text */
   height: auto; /* Let height adjust automatically */
-  display: block; /* Helps with centering and layout */
-  margin-bottom: 2rem; /* Add some space between SVG and button */
 }
 
 /* Monoline font + stroke-dash draw animation + fill-in */
 .hello-svg text {
   font-family: 'Pacifico', cursive;
-  font-size: 18vw; /* Responsive font size based on viewport width */
-  /* Optional: cap the font size on very large screens if 18vw becomes too large */
-  /* max-font-size: 120px; */
+  font-size: 20vw; /* Increased from 18vw */
+  /* You might want a max-font-size for very large screens if 20vw becomes too big */
+  /* max-font-size: 150px; (optional, if it gets too big on desktop with vw) */
   fill: #fff;
-  fill-opacity: 0; /* Start transparent */
+  fill-opacity: 0;
   stroke: #fff;
-  stroke-width: 2.5; /* Adjusted stroke width */
+  stroke-width: 3; /* Increased from 2.5 */
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 800; /* Adjust if total path length changes significantly with font size variants */
-  stroke-dashoffset: 800; /* Hide outline at start */
+  /* IMPORTANT: Test this value. May need adjustment based on the new font size. */
+  stroke-dasharray: 1200; /* Increased from 800 */
+  stroke-dashoffset: 1200; /* Increased from 800 */
   animation:
-    draw-on 5s ease-out forwards, /* Draw stroke */
-    fill-in 0.5s ease-in 5s forwards; /* Fade in fill after stroke */
-  text-anchor: middle; /* Ensure text is centered within the SVG text element */
-  dominant-baseline: middle; /* Ensure vertical centering */
+    draw-on 5s ease-out forwards,
+    fill-in 0.5s ease-in 5s forwards;
 }
 
 @keyframes draw-on {
@@ -57,24 +54,54 @@ body,
   }
 }
 
-/* “View Portfolio” button base styles */
+/* “View Portfolio” button base style */
 .get-started {
-  position: absolute; /* Position relative to the .container or body */
-  bottom: 10%; /* Positioned from the bottom */
-  padding: 0.75rem 1.5rem;
+  position: absolute;
+  bottom: 10%;
+  padding: 1rem 2.2rem; /* Increased padding */
+  font-size: 1.5rem;    /* Increased font size */
+  font-weight: bold;
   border: 2px solid #fff;
-  border-radius: 9999px; /* Pill shape */
+  border-radius: 9999px; /* pill shape */
   background: #fff;
   color: #000;
-  font-size: 1rem; /* Base font size */
-  font-weight: bold;
-  text-decoration: none;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
-  text-align: center;
+  /* Ensure it's hidden initially if JS relies on .hidden class being there first */
+  opacity: 0;
+  pointer-events: none;
 }
 
-/* Hover & active effects for the button */
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) { /* Adjust breakpoint as needed (e.g., 768px for tablets and phones) */
+  .hello-svg text {
+    /* If using vw didn't give enough control, you can set a specific size here */
+    /* font-size: 60px; */ /* Example for a fixed mobile size if vw isn't perfect */
+    /* stroke-width: 2; */ /* Adjust stroke for smaller text */
+  }
+
+  .get-started {
+    font-size: 1.1rem;  /* This will now be smaller than the base style, which is correct for mobile */
+    padding: 0.85rem 1.8rem; /* Adjust padding for mobile */
+    /* You could also make its width a percentage if needed */
+    /* width: 60%; */
+    /* max-width: 280px; */
+  }
+}
+
+/* You can add another breakpoint for very small phones if necessary */
+@media (max-width: 400px) {
+  .hello-svg text {
+    font-size: 18vw; /* Further adjust vw or set a smaller fixed size (was 16vw, adjusted slightly) */
+    /* stroke-width: 1.5; */
+  }
+  .get-started {
+    font-size: 1rem; /* Or adjust as needed */
+    padding: 0.75rem 1.6rem; /* Adjusted slightly */
+  }
+}
+
+/* Hover & active effects for .get-started */
 .get-started:hover {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(255,255,255,0.8);
@@ -84,54 +111,12 @@ body,
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 
-/* Media Queries for Mobile Devices */
-@media (max-width: 768px) { /* General tablet and larger phone breakpoint */
-    .hello-svg text {
-        /* font-size: 18vw; is already responsive, adjust if needed */
-    }
-    .get-started {
-        /* Adjust if button is still too far down or needs more space */
-        /* bottom: 15%; */
-    }
-}
-
-@media (max-width: 600px) { /* Smaller tablets and phones */
-  .hello-svg text {
-    /* If 18vw is still too large, you can override it here, e.g.: */
-    /* font-size: 100px; */ /* Or use a smaller vw, e.g., 20vw or 22vw for larger text on smaller screens */
-    /* stroke-width: 2; */ /* Adjust stroke for smaller text if needed */
-  }
-
-  .get-started {
-    font-size: 1.1rem;  /* Slightly larger font size for mobile */
-    padding: 0.85rem 1.8rem; /* Slightly larger padding for a bigger tap target */
-    /* width: 60%; */ /* Optionally control width */
-    /* max-width: 280px; */
-  }
-}
-
-@media (max-width: 480px) { /* Smaller phones */
-  .hello-svg text {
-    font-size: 22vw; /* May need to be larger vw on very small screens to be legible */
-                     /* or a fixed pixel value that works well, e.g., 80px */
-    /* stroke-width: 1.5; */
-  }
-  .get-started {
-    font-size: 1rem;
-    padding: 0.8rem 1.6rem;
-    /* bottom: 12%; */ /* Adjust vertical position if needed */
-  }
-  .hello-svg {
-    margin-bottom: 1.5rem; /* Reduce space for very small screens */
-  }
-}
-
 /* Utility classes for show/hide */
 .hidden {
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0 !important; /* Ensure it overrides base opacity if button starts visible */
+  pointer-events: none !important;
 }
 .visible {
-  opacity: 1;
-  pointer-events: auto;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
