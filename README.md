@@ -73,7 +73,7 @@ This is the repository for Pandari Chundru's personal portfolio website, showcas
     ```
 
 ### 5. CV (Résumé):
-* The "Download CV" button in `portfolio.html` currently has `href="#"`. Update this to point to your CV file (e.g., `href="path/to/your_cv.pdf"`). Make sure to include the CV file in the project directory or host it online.
+* The "Download CV" button in `portfolio.html` currently has `href="Pandari Chundru CV.pdf"`. Update this to point to your CV file (e.g., `href="path/to/your_cv.pdf"`). Make sure to include the CV file in the project directory or host it online.
 
 ### 6. Intro Animation:
 * The "hello" text and animation timings can be adjusted in `index.html` (SVG text) and `style.css` (`@keyframes draw-on`, `@keyframes fill-in`).
