@@ -75,3 +75,5 @@ document.addEventListener('DOMContentLoaded', () => {
             link.style.transform = 'translateY(0)';
         }, 200 + i * 80);
     });
+    
+     fadeInElements.forEach(el => el.classList.add('visible'));
