@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // -- GITHUB CONTRIBUTION GRAPH ---
     const GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';
-    const GITHUB_TOKEN = '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'; // CHANGE THIS: Replace with your new token
+    const GITHUB_TOKEN = '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'; // CHANGE THIS: Replace with your new token
     const USERNAME = 'pandarichundru'; // CHANGE THIS: Replace with your GitHub username if different
 
     async function fetchContributions() {
