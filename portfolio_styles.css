@@ -292,3 +292,36 @@ body.menu-open {
         padding-right: 0; /* Reset padding on container if hamburger is outside */
     }
 }
+/* Existing styles */
+
+/* GitHub Contribution Graph Styles */
+.contribution-graph {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.contribution-calendar {
+    display: grid;
+    grid-template-columns: repeat(53, 10px);
+    grid-gap: 2px;
+    justify-content: center;
+}
+
+.contrib-cell {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.contrib-cell.empty { background-color: #ebedf0; }
+.contrib-cell.level-0 { background-color: #ebedf0; }
+.contrib-cell.level-1 { background-color: #c6e48b; }
+.contrib-cell.level-2 { background-color: #7bc96f; }
+.contrib-cell.level-3 { background-color: #239a3b; }
+.contrib-cell.level-4 { background-color: #196127; }
