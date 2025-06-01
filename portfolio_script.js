@@ -95,3 +95,27 @@ if (menuToggleButton && mobileNavPanel) {
         });
     });
 }
+function updateDateTime() {
+  const now = new Date();
+
+  const options = {
+    weekday: 'short',    // e.g., Mon
+    month: 'short',      // e.g., Jun
+    day: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true         // Enable 12-hour format with AM/PM
+  };
+
+  const formatted = now.toLocaleString('en-US', options);
+  const datetimeElement = document.getElementById('datetime');
+  if (datetimeElement) {
+    datetimeElement.textContent = formatted;
+  }
+}
+
+// Initial call and interval update
+updateDateTime();
+setInterval(updateDateTime, 1000);
