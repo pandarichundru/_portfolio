@@ -27,27 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- APPLE-LIKE MOBILE MENU TOGGLE ---
-  const menuBtn = document.getElementById('apple-menu-btn');
-  const mobileMenu = document.getElementById('apple-mobile-menu');
-
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      menuBtn.classList.toggle('active');
-      mobileMenu.classList.toggle('open');
-      mobileMenu.classList.toggle('translate-x-full'); // Toggle visibility
-
-      if (mobileMenu.classList.contains('open')) {
-        document.body.classList.add('menu-open');
-      } else {
-        document.body.classList.remove('menu-open');
-      }
-    });
-  } else {
-    console.error('Apple menu button or mobile menu element not found.');
-  }
-
-
   // --- FADE-IN ON SCROLL ---
   const fadeInElements = document.querySelectorAll('.fade-in');
   const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 }; // Start animation when 10% is visible
@@ -93,3 +72,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+const menuToggleButton = document.querySelector('.menu-toggle-button');
+const mobileNavPanel = document.getElementById('mobileNavPanel');
+
+if (menuToggleButton && mobileNavPanel) {
+    menuToggleButton.addEventListener('click', () => {
+        const isVisible = mobileNavPanel.getAttribute('data-visible') === 'true';
+        menuToggleButton.setAttribute('aria-expanded', !isVisible);
+        mobileNavPanel.setAttribute('data-visible', !isVisible);
+        document.body.classList.toggle('menu-is-open', !isVisible);
+    });
+
+    const navLinks = mobileNavPanel.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (link.getAttribute('href').startsWith('#')) {
+                menuToggleButton.setAttribute('aria-expanded', 'false');
+                mobileNavPanel.setAttribute('data-visible', 'false');
+                document.body.classList.remove('menu-is-open');
+            }
+        });
+    });
+}

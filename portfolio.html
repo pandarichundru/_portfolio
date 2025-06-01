@@ -9,42 +9,42 @@
     <link rel="stylesheet" href="portfolio_styles.css" />
 </head>
 <body class="antialiased">
+  <header class="site-header">
+    <a href="#" class="site-title">Pandari Chundru</a>
 
-    <nav class="navbar fixed w-full top-0 left-0 py-4 bg-black z-30">
-        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="text-white text-2xl font-semibold tracking-tight">Pandari Chundru</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#home" class="nav-link text-sm font-medium">Home</a>
-                <a href="#contributions" class="nav-link text-sm font-medium">Contributions</a>
-                <a href="#about" class="nav-link text-sm font-medium">About</a>
-                <a href="#skills" class="nav-link text-sm font-medium">Skills</a>
-                <a href="#projects" class="nav-link text-sm font-medium">Projects</a>
-                <a href="#experience" class="nav-link text-sm font-medium">Experience</a>
-                <a href="#certifications" class="nav-link text-sm font-medium">Certifications</a>
-                <a href="#contact" class="nav-link text-sm font-medium">Contact</a>
-            </div>
-            <button id="apple-menu-btn" class="md:hidden text-white focus:outline-none z-50">
-                <div class="hamburger-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </button>
-        </div>
-    </nav>
+   <!-- Desktop Navigation -->
+   <nav class="desktop-nav hidden md:flex space-x-6">
+     <a href="#home" class="nav-link">Home</a>
+     <a href="#about" class="nav-link">About</a>
+     <a href="#skills" class="nav-link">Skills</a>
+     <a href="#projects" class="nav-link">Projects</a>
+     <a href="#experience" class="nav-link">Experience</a>
+     <a href="#certifications" class="nav-link">Certifications</a>
+     <a href="#contact" class="nav-link">Contact</a>
+   </nav>
 
-    <div id="apple-mobile-menu" class="fixed inset-0 bg-black bg-opacity-95 backdrop-blur-md z-40 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
-        <div class="flex flex-col items-center justify-center h-full space-y-8">
-            <a href="#home" class="mobile-nav-link text-3xl font-semibold text-gray-200">Home</a>
-            <a href="#about" class="mobile-nav-link text-3xl font-semibold text-gray-200">About</a>
-            <a href="#skills" class="mobile-nav-link text-3xl font-semibold text-gray-200">Skills</a>
-            <a href="#projects" class="mobile-nav-link text-3xl font-semibold text-gray-200">Projects</a>
-            <a href="#experience" class="mobile-nav-link text-3xl font-semibold text-gray-200">Experience</a>
-            <a href="#certifications" class="mobile-nav-link text-3xl font-semibold text-gray-200">Certifications</a>
-            <a href="#contact" class="mobile-nav-link text-3xl font-semibold text-gray-200">Contact</a>
-        </div>
-    </div>
+  <!-- Mobile Hamburger Button -->
+   <button class="menu-toggle-button md:hidden" aria-controls="mobileNavPanel" aria-expanded="false" aria-label="Toggle Menu">
+      <span class="hamburger-icon-container">
+      <span class="hamburger-bar hamburger-bar--top"></span>
+      <span class="hamburger-bar hamburger-bar--middle"></span>
+      <span class="hamburger-bar hamburger-bar--bottom"></span>
+     </span>
+    </button>
+   </header>
 
+<!-- Mobile Slide-out Navigation -->
+  <nav class="mobile-nav-panel" id="mobileNavPanel" data-visible="false">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+   </ul>
+  </nav>
 
     <section id="home" class="hero-section">
         <div class="fade-in">
