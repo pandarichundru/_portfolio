@@ -440,3 +440,48 @@ body.menu-is-open {
   color: #1f2937; /* gray-800 */
   background: inherit;
 }
+@media (max-width: 768px) {
+  .scroll-showcase {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .image-panel {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .image-panel img {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .text-panel {
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+    scroll-snap-type: none;
+    padding: 20px;
+  }
+
+  .text-block {
+    height: auto;
+    margin-bottom: 60px;
+    opacity: 1 !important;
+  }
+
+  .projects-heading-wrapper {
+    position: relative;
+  }
+}
+.text-block h3 {
+  font-size: 1.25rem;
+}
+
+.text-block p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
