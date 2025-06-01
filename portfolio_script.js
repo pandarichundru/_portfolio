@@ -128,11 +128,17 @@ if (blocks.length && image) {
       if (entry.isIntersecting) {
         blocks.forEach(b => b.classList.remove('active'));
         entry.target.classList.add('active');
+
         const imgSrc = entry.target.dataset.img;
-        image.src = imgSrc;
+        if (imgSrc && image.src !== imgSrc) {
+          image.src = imgSrc;
+        }
       }
     });
-  }, { threshold: 0.6 });
+  }, {
+    threshold: 0.5, // lower threshold to support smaller viewports
+    rootMargin: '0px 0px -30% 0px' // helps fire earlier
+  });
 
   blocks.forEach(block => observer.observe(block));
 }
