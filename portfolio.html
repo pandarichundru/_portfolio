@@ -118,26 +118,31 @@
         </div>
     </section>
 
-    <section id="projects" class="section">
-        <h2 class="text-4xl font-bold mb-12 text-center tracking-tight fade-in">Projects</h2>
-        <div class="space-y-8">
-            <div class="project-card card-base fade-in">
-                <h3 class="text-2xl font-semibold mb-3 text-gray-800">Brain Tumour Classification</h3>
-                <p class="text-gray-700 mb-4 leading-relaxed">Developed a deep learning model using EfficientNetB0, achieving 95%+ accuracy in classifying MRI brain images. Compared performance with custom CNN (93%) and MLPClassifier (85%).</p>
-                <a href="https://github.com/pandarichundru/Brain-Tumor-" class="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300 group">View Project <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
-            </div>
-            <div class="project-card card-base fade-in" style="animation-delay: 0.1s;">
-                <h3 class="text-2xl font-semibold mb-3 text-gray-800">Cloud-Based Movie Streaming</h3>
-                <p class="text-gray-700 mb-4 leading-relaxed">Built a scalable movie streaming platform using AWS EC2, S3, RDS, and CloudFront. Implemented API Gateway for secure API management.</p>
-                <a href="https://drive.google.com/file/d/1TVKOP7DoWHsD4o2rYQlDXdDZbi4LFo8r/view?usp=sharing" class="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300 group">View Project <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
-            </div>
-            <div class="project-card card-base fade-in" style="animation-delay: 0.2s;">
-                <h3 class="text-2xl font-semibold mb-3 text-gray-800">Big Data Analysis</h3>
-                <p class="text-gray-700 mb-4 leading-relaxed">Processed large-scale web log data using Apache Spark and Spark SQL. Created visualizations with Matplotlib and Seaborn to highlight business insights.</p>
-                <a href="https://github.com/pandarichundru/spark-dataframe-rdd-analytics" class="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300 group">View Project <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
-            </div>
-        </div>
-    </section>
+    <section id="projects" class="scroll-showcase">
+      <div class="image-panel">
+       <img id="project-image" src="images/brain-tumor.png" alt="Brain Tumor Image" />
+     </div>
+
+    <div class="text-panel">
+     <div class="text-block active" data-img="images/brain-tumor.png">
+      <h3 class="text-2xl font-semibold mb-3 text-gray-800">Brain Tumour Classification</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">Developed a deep learning model using EfficientNetB0, achieving 95%+ accuracy in classifying MRI brain images. Compared performance with custom CNN (93%) and MLPClassifier (85%).</p>
+      <a href="https://github.com/pandarichundru/Brain-Tumor-" class="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300 group">View Project <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
+    </div>
+
+    <div class="text-block" data-img="images/cloud-streaming.png">
+      <h3 class="text-2xl font-semibold mb-3 text-gray-800">Cloud-Based Movie Streaming</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">Built a scalable movie streaming platform using AWS EC2, S3, RDS, and CloudFront. Implemented API Gateway for secure API management.</p>
+      <a href="https://drive.google.com/file/d/1TVKOP7DoWHsD4o2rYQlDXdDZbi4LFo8r/view?usp=sharing" class="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300 group">View Project <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
+    </div>
+
+    <div class="text-block" data-img="images/big-data.png">
+      <h3 class="text-2xl font-semibold mb-3 text-gray-800">Big Data Analysis</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">Processed large-scale web log data using Apache Spark and Spark SQL. Created visualizations with Matplotlib and Seaborn to highlight business insights.</p>
+      <a href="https://github.com/pandarichundru/spark-dataframe-rdd-analytics" class="text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300 group">View Project <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
+    </div>
+  </div>
+</section>
 
     <section id="experience" class="section bg-gray-100">
         <h2 class="text-4xl font-bold mb-12 text-center tracking-tight fade-in">Experience</h2>
