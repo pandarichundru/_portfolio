@@ -119,3 +119,20 @@ function updateDateTime() {
 // Initial call and interval update
 updateDateTime();
 setInterval(updateDateTime, 1000);
+const blocks = document.querySelectorAll('.text-block');
+const image = document.getElementById('project-image');
+
+if (blocks.length && image) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        blocks.forEach(b => b.classList.remove('active'));
+        entry.target.classList.add('active');
+        const imgSrc = entry.target.dataset.img;
+        image.src = imgSrc;
+      }
+    });
+  }, { threshold: 0.6 });
+
+  blocks.forEach(block => observer.observe(block));
+}
