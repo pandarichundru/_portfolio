@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-11293797905"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-11293797905');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pandari Chundru - Portfolio</title>
@@ -52,7 +61,7 @@
             <p class="text-xl md:text-2xl mb-8 text-gray-300">Skilled in Data, Cloud & Analytics Engineering</p>
             <div class="hero-buttons-container md:space-x-4">
                 <a href="#projects" class="bg-white text-black py-3 px-7 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 pulse-on-load hover-bounce text-lg inline-block">View My Work</a>
-                <a href="Pandari Chundru CV.pdf" class="bg-white text-black py-3 px-7 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 pulse-on-load hover-bounce text-lg inline-block mt-4 md:mt-0">Download CV</a>
+                <a href="Pandari Chundru CV.pdf" class="bg-white text-black py-3 px-7 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 pulse-on-load hover-bounce text-lg inline-block mt-4 md:mt-0" onclick="gtag('event', 'download_cv', {   event_category: 'engagement', event_label: 'Pandari Chundru CV.pdf'  })"> Download CV</a>
             </div>
             <div class="flex justify-center space-x-8 mt-6">
                 <a href="https://www.linkedin.com/in/pandari-chundru-200bb2205" target="_blank" rel="noopener noreferrer" class="text-4xl text-white hover:text-blue-400 social-icon"><i class='bx bxl-linkedin-square'></i></a>
