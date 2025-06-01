@@ -385,3 +385,47 @@ body.menu-is-open {
     opacity: 0;
   }
 }
+.scroll-showcase {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.image-panel {
+  flex: 1;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 0;
+}
+
+.image-panel img {
+  max-width: 90%;
+  border-radius: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.text-panel {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  padding: 40px;
+}
+
+.text-block {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.text-block.active {
+  opacity: 1;
+}
