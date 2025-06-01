@@ -392,20 +392,16 @@ body.menu-is-open {
 }
 
 .image-panel {
-  flex: 1;
-  background: #000;
+  width: 35%;
+  min-width: 300px;
+  max-width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 0;
-}
-
-.image-panel img {
-  max-width: 90%;
-  border-radius: 12px;
-  transition: opacity 0.3s ease;
+  background: transparent; /* optional, can be removed */
 }
 
 .text-panel {
