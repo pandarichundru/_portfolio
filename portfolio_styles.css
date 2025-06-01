@@ -334,4 +334,54 @@ body.menu-is-open {
   }
 }
 
+.merge-wave-below {
+  width: 100%;
+  height: 100px;
+  background: black;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
 
+.merge-wave {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.merge-wave .line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: white;
+  animation: dropLine 3s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+/* Vertical placement + staggered animation */
+.merge-wave .line:nth-child(1)  { animation-delay: 0s;     top: 0px; }
+.merge-wave .line:nth-child(2)  { animation-delay: 0.15s;  top: 10px; }
+.merge-wave .line:nth-child(3)  { animation-delay: 0.3s;   top: 20px; }
+.merge-wave .line:nth-child(4)  { animation-delay: 0.45s;  top: 30px; }
+.merge-wave .line:nth-child(5)  { animation-delay: 0.6s;   top: 40px; }
+.merge-wave .line:nth-child(6)  { animation-delay: 0.75s;  top: 50px; }
+.merge-wave .line:nth-child(7)  { animation-delay: 0.9s;   top: 60px; }
+.merge-wave .line:nth-child(8)  { animation-delay: 1.05s;  top: 70px; }
+.merge-wave .line:nth-child(9)  { animation-delay: 1.2s;   top: 80px; }
+.merge-wave .line:nth-child(10) { animation-delay: 1.35s;  top: 90px; }
+
+@keyframes dropLine {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
