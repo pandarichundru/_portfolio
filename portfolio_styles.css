@@ -472,3 +472,23 @@ body.menu-is-open {
     margin-top: 10px;
   }
 }
+/* Universal Apple-Inspired Section Box */
+.section-box {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  padding: 40px 30px;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease;
+}
+
+.section-box:hover {
+  transform: translateY(-6px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .section-box {
+    padding: 24px 20px;
+  }
+}
