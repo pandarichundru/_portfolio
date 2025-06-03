@@ -63,7 +63,7 @@ pandari-portfolio/
 
 <p align="left">
   💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pandari-chundru-200bb2205" target="_blank">pandari-chundru</a> <br>
-  🧠 <strong>GitHub:</strong> <a href="https://github.com/pandarichundru" target="_blank">pandari-chundru</a> <br>
+  💻 <strong>GitHub:</strong> <a href="https://github.com/pandarichundru" target="_blank">pandari-chundru</a> <br>
   ✉️ <strong>Email:</strong> <a href="mailto:pandarichundru@gmail.com">pandarichundru@gmail.com</a> <br>
   📱 <strong>Phone:</strong> +91 79890 76668
 </p>
@@ -82,6 +82,6 @@ pandari-portfolio/
 
 ---
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com/?lines=Thanks+for+visiting+👋;Happy+Coding+💻&font=Fira+Code&center=true&width=440&height=40&color=007ACC&vCenter=true&pause=1000" alt="Typing SVG" />
-</p>
+## 🎉 Thanks for Visiting!
+
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=007ACC&center=true&vCenter=true&width=435&lines=Thanks+for+visiting+👋;Happy+Coding+💻)
