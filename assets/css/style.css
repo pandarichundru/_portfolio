@@ -19,34 +19,26 @@ body,
 .hello-svg {
   width: 100%;
   max-width: 600px;
-}
-
-/* Monoline font + stroke-dash draw animation + fill-in */
-.hello-svg text {
-  font-family: 'Pacifico', cursive;
-  font-size: 120px;           /* adjust as needed */
-  fill: #fff;
-  fill-opacity: 0;            /* start transparent */
+  fill: none;
   stroke: #fff;
-  stroke-width: 4;
   stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 800;      /* ≥ total path length */
-  stroke-dashoffset: 800;     /* hide outline at start */
-  animation:
-    draw-on 5s ease-out forwards,     /* draw stroke */
-    fill-in 0.5s ease-in 5s forwards;  /* fade in fill after stroke */
+  stroke-miterlimit: 10;
+  stroke-width: 48px;
+  stroke-dasharray: 5800px;
+  stroke-dashoffset: 5800px;
+  animation: anim__hello linear 5s forwards;
 }
 
-@keyframes draw-on {
-  to {
-    stroke-dashoffset: 0;
+/* Animation for SVG path */
+@keyframes anim__hello {
+  0% {
+    stroke-dashoffset: 5800;
   }
-}
-
-@keyframes fill-in {
-  to {
-    fill-opacity: 1;
+  25% {
+    stroke-dashoffset: 5800;
+  }
+  100% {
+    stroke-dashoffset: 0;
   }
 }
 
@@ -85,4 +77,24 @@ body,
   pointer-events: auto;
 }
 
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .hello-svg {
+    max-width: 80%; /* Scale down for smaller screens */
+  }
+  .get-started {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    bottom: 5%; /* Closer to bottom on mobile */
+  }
+}
 
+@media (max-width: 480px) {
+  .hello-svg {
+    max-width: 90%; /* Further scale down for very small screens */
+  }
+  .get-started {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
