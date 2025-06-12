@@ -84,13 +84,6 @@ body.menu-open {
 .nav-link:hover {
     transform: scale(1.05);
 }
-.nav-link.active {
-    background: rgba(255, 255, 255, 0.9);
-    color: #1d1d1f;
-    font-size: 0.875rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; /* Reduced roundness */
-}
 
 /* FADE-IN ANIMATIONS */
 .fade-in {
