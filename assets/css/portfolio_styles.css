@@ -479,5 +479,38 @@ body.menu-is-open {
         width: 100%;
     }
 }
+/* Cement Border Wrapper */
+.cement-border-wrapper {
+  max-width: 1100px;
+  margin: -60px auto 60px auto;
+  padding: 60px 40px;
+  border: 20px solid #c4c4c4; /* 🧱 Cement gray, 5x thicker */
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* Inner sections */
+.cement-border-wrapper section {
+  padding: 60px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.cement-border-wrapper section:last-of-type {
+  border-bottom: none;
+}
+
+/* Mobile version */
+@media (max-width: 768px) {
+  .cement-border-wrapper {
+    padding: 32px 20px;
+    border-width: 16px;
+    border-radius: 16px;
+    margin-top: -40px;
+  }
+}
 
 
