@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveLink(id);
       }
     });
-  }, { threshold: 0.6 });
+  }, { threshold: 0.4 });
 
   sections.forEach(section => sectionObserver.observe(section));
   window.addEventListener('resize', () => {
