@@ -13,6 +13,28 @@ document.addEventListener('DOMContentLoaded', () => {
           behavior: 'smooth'
         });
       }
+      const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${id}`) {
+          link.classList.add('active');
+
+          // --- Add bounce effect ---
+          link.style.animation = 'bounce-click 0.4s ease';
+          link.addEventListener('animationend', () => {
+            link.style.animation = '';
+          }, { once: true });
+        }
+      });
+      moveBubbleToActiveLink();
+    }
+  });
+}, {
+  threshold: 0.6
+});
 
       // Update active class for desktop nav links
       if (this.classList.contains('nav-link')) {
