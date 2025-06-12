@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // === SELECTORS ===
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-panel a');
   const desktopNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
-  const navBubble = document.querySelector('.nav-bubble');
   const sections = document.querySelectorAll('section[id]');
   const mobileNavPanel = document.getElementById('mobileNavPanel');
   const menuToggleButton = document.querySelector('.menu-toggle-button');
@@ -31,28 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => setActiveLink(id), 100);
     });
   });
-
-  // === MOVE BUBBLE UNDER ACTIVE NAV LINK ===
-  function moveBubbleTo(link) {
-    if (!link || !navBubble) return;
-    const rect = link.getBoundingClientRect();
-    const parentRect = link.parentElement.getBoundingClientRect();
-    navBubble.style.width = `${rect.width}px`;
-    navBubble.style.left = `${rect.left - parentRect.left}px`;
-  }
-
-  // === SET ACTIVE LINK + BOUNCE + BUBBLE ===
-  function setActiveLink(id) {
-    desktopNavLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${id}`) {
-        link.classList.add('active');
-        link.classList.add('bounce');
-        setTimeout(() => link.classList.remove('bounce'), 400);
-        moveBubbleTo(link);
-      }
-    });
-  }
 
   // === OBSERVE SCROLL TO UPDATE NAV ===
   const sectionObserver = new IntersectionObserver(entries => {
