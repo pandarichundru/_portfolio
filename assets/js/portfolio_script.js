@@ -187,3 +187,40 @@ document.addEventListener('DOMContentLoaded', () => {
   updateDateTime();
   setInterval(updateDateTime, 1000);
 });
+const navBubble = document.querySelector('.nav-bubble');
+function moveBubbleToActiveLink() {
+  const activeLink = document.querySelector('.desktop-nav .nav-link.active');
+  if (activeLink && navBubble) {
+    const linkRect = activeLink.getBoundingClientRect();
+    const navRect = activeLink.parentElement.getBoundingClientRect();
+
+    navBubble.style.width = `${linkRect.width}px`;
+    navBubble.style.left = `${linkRect.left - navRect.left}px`;
+  }
+}
+
+// Modify your existing IntersectionObserver logic:
+const scrollObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      const targetLink = document.querySelector(`.desktop-nav .nav-link[href="#${id}"]`);
+
+      if (targetLink && !targetLink.classList.contains('active')) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        targetLink.classList.add('active');
+
+        // Bounce effect
+        targetLink.classList.add('bounce');
+        setTimeout(() => targetLink.classList.remove('bounce'), 400);
+
+        // Move the nav bubble
+        moveBubbleToActiveLink();
+      }
+    }
+  });
+}, { threshold: 0.6 });
+
+sections.forEach(section => scrollObserver.observe(section));
+window.addEventListener('resize', moveBubbleToActiveLink);
+moveBubbleToActiveLink();
