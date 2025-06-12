@@ -74,9 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- ACTIVE NAV LINK ON SCROLL ---
   const sections = document.querySelectorAll('section, body[id="home"]');
   const navObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id || 'home';
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      if (id) {
         navLinks.forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('href') === `#${id}`) {
@@ -84,10 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }
-    });
-  }, { rootMargin: '-20% 0px -80% 0px', threshold: 0.1 });
-  sections.forEach(section => navObserver.observe(section));
-
+    }
+  });
+}, { threshold: 0.6 }); // Activates when 60% of the section is visible
   // --- SYMMETRICAL FOUNTAIN ANIMATION ---
   const lines = document.querySelectorAll('.merge-wave .line');
   const totalLines = lines.length;
