@@ -1,78 +1,99 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- SMOOTH SCROLL FOR NAV LINKS (DESKTOP AND MOBILE) ---
+  // === SELECTORS ===
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-panel a');
-  navLinks.forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
-      const targetSection = targetId === 'home' ? document.body : document.getElementById(targetId);
+  const desktopNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
+  const navBubble = document.querySelector('.nav-bubble');
+  const sections = document.querySelectorAll('section[id]');
+  const mobileNavPanel = document.getElementById('mobileNavPanel');
+  const menuToggleButton = document.querySelector('.menu-toggle-button');
 
-      if (targetSection) {
+  // === SMOOTH SCROLLING ON CLICK ===
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const id = link.getAttribute('href').substring(1);
+      const target = document.getElementById(id);
+      if (target) {
         window.scrollTo({
-          top: targetSection === document.body ? 0 : targetSection.offsetTop,
+          top: target.offsetTop,
           behavior: 'smooth'
         });
       }
-      const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${id}`) {
-          link.classList.add('active');
 
-          // --- Add bounce effect ---
-          link.style.animation = 'bounce-click 0.4s ease';
-          link.addEventListener('animationend', () => {
-            link.style.animation = '';
-          }, { once: true });
-        }
-      });
-      moveBubbleToActiveLink();
-    }
-  });
-}, {
-  threshold: 0.6
-});
-
-      // Update active class for desktop nav links
-      if (this.classList.contains('nav-link')) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        this.classList.add('active');
-      }
-
-      // If it's a mobile link, close the menu
-      if (this.closest('.mobile-nav-panel')) {
-        const mobileMenu = document.getElementById('mobileNavPanel');
-        const menuBtn = document.querySelector('.menu-toggle-button');
-        mobileMenu.setAttribute('data-visible', 'false');
-        menuBtn.setAttribute('aria-expanded', 'false');
+      // Close mobile menu if open
+      if (link.closest('.mobile-nav-panel')) {
+        mobileNavPanel.setAttribute('data-visible', 'false');
+        menuToggleButton.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('menu-is-open');
       }
+
+      // Update active (click-based)
+      setTimeout(() => setActiveLink(id), 100);
     });
   });
 
-  // --- FADE-IN ON SCROLL ---
+  // === MOVE BUBBLE UNDER ACTIVE NAV LINK ===
+  function moveBubbleTo(link) {
+    if (!link || !navBubble) return;
+    const rect = link.getBoundingClientRect();
+    const parentRect = link.parentElement.getBoundingClientRect();
+    navBubble.style.width = `${rect.width}px`;
+    navBubble.style.left = `${rect.left - parentRect.left}px`;
+  }
+
+  // === SET ACTIVE LINK + BOUNCE + BUBBLE ===
+  function setActiveLink(id) {
+    desktopNavLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${id}`) {
+        link.classList.add('active');
+        link.classList.add('bounce');
+        setTimeout(() => link.classList.remove('bounce'), 400);
+        moveBubbleTo(link);
+      }
+    });
+  }
+
+  // === OBSERVE SCROLL TO UPDATE NAV ===
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        setActiveLink(id);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  sections.forEach(section => sectionObserver.observe(section));
+  window.addEventListener('resize', () => {
+    const active = document.querySelector('.desktop-nav .nav-link.active');
+    if (active) moveBubbleTo(active);
+  });
+  moveBubbleTo(document.querySelector('.desktop-nav .nav-link.active'));
+
+  // === FADE-IN ON SCROLL ===
   const fadeInElements = document.querySelectorAll('.fade-in');
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
   const fadeObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.1 });
   fadeInElements.forEach(el => fadeObserver.observe(el));
 
-  // --- NAVBAR "ON LOAD" ANIMATION ---
-  const portfolioName = document.querySelector('.site-title');
-  const desktopNavLinks = document.querySelectorAll('.navbar .nav-link');
+  // === MOBILE MENU TOGGLE ===
+  if (menuToggleButton && mobileNavPanel) {
+    menuToggleButton.addEventListener('click', () => {
+      const isVisible = mobileNavPanel.getAttribute('data-visible') === 'true';
+      mobileNavPanel.setAttribute('data-visible', !isVisible);
+      menuToggleButton.setAttribute('aria-expanded', !isVisible);
+      document.body.classList.toggle('menu-is-open', !isVisible);
+    });
+  }
 
+  // === NAVBAR ON LOAD ANIMATION ===
+  const portfolioName = document.querySelector('.site-title');
   if (portfolioName) {
     portfolioName.style.opacity = '0';
     portfolioName.style.transform = 'translateY(-10px)';
@@ -93,78 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 200 + i * 80);
   });
 
-  // --- ACTIVE NAV LINK ON SCROLL ---
-  const sections = document.querySelectorAll('section, body[id="home"]');
-  const navObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      if (id) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    }
-  });
-}, { threshold: 0.6 }); // Activates when 60% of the section is visible
-  // --- SYMMETRICAL FOUNTAIN ANIMATION ---
-  const lines = document.querySelectorAll('.merge-wave .line');
-  const totalLines = lines.length;
-
-  if (lines.length) {
-    function runFountainAnimation() {
-      const fallStagger = 100;
-      const riseStagger = 100;
-      const transitionDuration = 1500;
-
-      lines.forEach((line, index) => {
-        setTimeout(() => {
-          line.classList.add('fallen');
-        }, index * fallStagger);
-      });
-
-      const riseDelay = (totalLines * fallStagger) + transitionDuration;
-      lines.forEach((line, index) => {
-        setTimeout(() => {
-          line.classList.remove('fallen');
-        }, riseDelay + (index * riseStagger));
-      });
-
-      const cycleDuration = riseDelay + (totalLines * riseStagger) + transitionDuration + 1000;
-      setTimeout(runFountainAnimation, cycleDuration);
-    }
-
-    runFountainAnimation();
-  }
-
-  // --- MOBILE MENU TOGGLE ---
-  const menuToggleButton = document.querySelector('.menu-toggle-button');
-  const mobileNavPanel = document.getElementById('mobileNavPanel');
-
-  if (menuToggleButton && mobileNavPanel) {
-    menuToggleButton.addEventListener('click', () => {
-      const isVisible = mobileNavPanel.getAttribute('data-visible') === 'true';
-      menuToggleButton.setAttribute('aria-expanded', !isVisible);
-      mobileNavPanel.setAttribute('data-visible', !isVisible);
-      document.body.classList.toggle('menu-is-open', !isVisible);
-    });
-
-    const mobileNavLinks = mobileNavPanel.querySelectorAll('a');
-    mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (link.getAttribute('href').startsWith('#')) {
-          menuToggleButton.setAttribute('aria-expanded', 'false');
-          mobileNavPanel.setAttribute('data-visible', 'false');
-          document.body.classList.remove('menu-is-open');
-        }
-      });
-    });
-  }
-
-  // --- LIVE DATE AND TIME ---
+  // === LIVE DATE & TIME ===
   function updateDateTime() {
     const now = new Date();
     const options = {
@@ -183,44 +133,31 @@ document.addEventListener('DOMContentLoaded', () => {
       datetimeElement.textContent = formatted;
     }
   }
-
   updateDateTime();
   setInterval(updateDateTime, 1000);
-});
-const navBubble = document.querySelector('.nav-bubble');
-function moveBubbleToActiveLink() {
-  const activeLink = document.querySelector('.desktop-nav .nav-link.active');
-  if (activeLink && navBubble) {
-    const linkRect = activeLink.getBoundingClientRect();
-    const navRect = activeLink.parentElement.getBoundingClientRect();
 
-    navBubble.style.width = `${linkRect.width}px`;
-    navBubble.style.left = `${linkRect.left - navRect.left}px`;
-  }
-}
+  // === FOUNTAIN ANIMATION ===
+  const lines = document.querySelectorAll('.merge-wave .line');
+  const totalLines = lines.length;
+  if (totalLines) {
+    function runFountainAnimation() {
+      const fallStagger = 100;
+      const riseStagger = 100;
+      const transitionDuration = 1500;
 
-// Modify your existing IntersectionObserver logic:
-const scrollObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      const targetLink = document.querySelector(`.desktop-nav .nav-link[href="#${id}"]`);
+      lines.forEach((line, index) => {
+        setTimeout(() => line.classList.add('fallen'), index * fallStagger);
+      });
 
-      if (targetLink && !targetLink.classList.contains('active')) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        targetLink.classList.add('active');
+      const riseDelay = (totalLines * fallStagger) + transitionDuration;
+      lines.forEach((line, index) => {
+        setTimeout(() => line.classList.remove('fallen'), riseDelay + index * riseStagger);
+      });
 
-        // Bounce effect
-        targetLink.classList.add('bounce');
-        setTimeout(() => targetLink.classList.remove('bounce'), 400);
-
-        // Move the nav bubble
-        moveBubbleToActiveLink();
-      }
+      const cycleDuration = riseDelay + (totalLines * riseStagger) + transitionDuration + 1000;
+      setTimeout(runFountainAnimation, cycleDuration);
     }
-  });
-}, { threshold: 0.6 });
 
-sections.forEach(section => scrollObserver.observe(section));
-window.addEventListener('resize', moveBubbleToActiveLink);
-moveBubbleToActiveLink();
+    runFountainAnimation();
+  }
+});
