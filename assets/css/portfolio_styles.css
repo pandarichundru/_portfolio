@@ -481,7 +481,7 @@ body.menu-is-open {
 }
 /* Cement Border Wrapper */
 .cement-border-wrapper {
-    max-width: 1100px;
+    max-width: none;
     margin: -60px auto 60px auto;
     padding: 60px 40px;
     border: 20px solid #c4c4c4;
