@@ -10,7 +10,7 @@
 ## 🔥 LIVE DEMO
 
 <p align="center">
-  <a href="https://portfolio-indol-psi-14.vercel.app/" target="_blank">
+  <a href="https://pandarichundru.vercel.app" target="_blank">
     <img src="https://img.shields.io/badge/View%20Live%20Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo"/>
   </a>
 </p>
