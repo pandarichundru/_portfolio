@@ -23,30 +23,46 @@ body.menu-open, body.menu-is-open {
     justify-content: center;
     text-align: center;
     padding: 80px 20px 0;
+    margin-bottom: 80px; /* Added space below the hero section */
+}
+
+/* Light Effect for Hero Buttons */
+@keyframes buttonGlow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+    50% { box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.4); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.hero-buttons-container a {
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.hero-buttons-container a:active {
+    animation: buttonGlow 0.3s ease;
+    transform: scale(0.98); /* Slight shrink on click */
 }
 
 /* GENERAL SECTION */
 .section {
     padding: 40px 20px; /* Tighter padding for boxed sections */
     max-width: 1200px;
-    margin: 0 auto 40px auto; /* Spacing between sections */
+    margin: 0 auto 80px auto; /* Increased spacing between sections to 80px */
 }
 
 /* CARD STYLES */
 .card-base {
-    background: white;
-    border-radius: 18px;
-    padding: 8px;
+    background: linear-gradient(145deg, #ffffff, #f8f8fa); /* Match About/Certifications */
+    border-radius: 24px; /* Match About/Certifications */
+    padding: 48px 32px; /* Match About/Certifications */
     margin-bottom: 24px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.07);
-    transition: transform 0.3s cubic-bezier(0.25,0.8,0.25,1),
-                box-shadow 0.3s cubic-bezier(0.25,0.8,0.25,1);
-    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04); /* Match About/Certifications */
+    transition: transform 0.3s cubic-bezier(0.25,0.8,0.25,1);
+    border: none; /* Remove border for consistency */
 }
 
 .card-base:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08), 0 6px 16px rgba(0,0,0,0.05); /* Match About/Certifications */
 }
 
 .project-card, .experience-card, .certification-card {
@@ -101,8 +117,8 @@ body.menu-open, body.menu-is-open {
 
 /* PULSE ON LOAD */
 @keyframes pulse {
-    0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
-    70%  { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+    70% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
 }
 
@@ -112,8 +128,8 @@ body.menu-open, body.menu-is-open {
 
 /* HOVER BOUNCE ON CLICK */
 @keyframes bounce-click {
-    0%   { transform: scale(1); }
-    50%  { transform: scale(0.95); }
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
     100% { transform: scale(1); }
 }
 
@@ -168,16 +184,16 @@ body.menu-open, body.menu-is-open {
 
 /* SKILL CARDS */
 .skill-card {
-    background-color: white;
-    padding: 24px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(145deg, #ffffff, #f8f8fa); /* Match About/Certifications */
+    padding: 48px 32px; /* Match About/Certifications */
+    border-radius: 24px; /* Match About/Certifications */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04); /* Match About/Certifications */
+    transition: transform 0.3s ease;
 }
 
 .skill-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08), 0 6px 16px rgba(0,0,0,0.05); /* Match About/Certifications */
 }
 
 .skill-card .text-5xl {
@@ -258,60 +274,71 @@ body.menu-open, body.menu-is-open {
 .mobile-nav-panel {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 0; /* Full-screen from left */
+    width: 100%; /* Full-screen width */
     height: 100vh;
-    background-color: #000000;
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    backdrop-filter: blur(16px) saturate(180%); /* Match desktop navbar blur */
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     z-index: 99;
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    padding: 20px; /* Reduced padding for centered layout */
     box-sizing: border-box;
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    border-left: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
 }
 
 .mobile-nav-panel[data-visible="true"] {
-    transform: translateX(0%);
+    transform: translateX(0);
 }
 
 .mobile-nav-panel ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: center;
+    width: 100%; /* Full width for list */
+    text-align: center; /* Center text within list items */
 }
 
 .mobile-nav-panel li {
-    margin: 20px 0;
+    margin: 8px 0; /* Reduced margin for tighter spacing */
+    width: 100%; /* Full width for list items */
 }
 
 .mobile-nav-panel a {
-    color: #ecf0f1;
+    color: #1d1d1f; /* Black text to match desktop nav */
     text-decoration: none;
-    font-size: 1.8em;
-    padding: 10px;
+    font-size: 0.875rem; /* Match desktop nav-link size */
+    font-weight: 500; /* Match desktop nav-link weight */
+    padding: 8px 16px; /* Match desktop nav-link padding */
     display: block;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    opacity: 1; /* Always visible */
+    transform: translateY(0); /* No transform animation */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Match desktop nav-link transitions */
+    border-radius: 10px; /* Match desktop nav-link border-radius */
+    text-align: center; /* Ensure text is centered */
 }
 
-.mobile-nav-panel[data-visible="true"] a {
-    opacity: 1;
-    transform: translateY(0);
+.mobile-nav-panel a:hover {
+    transform: scale(1.05); /* Match desktop nav-link hover */
+    background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
 }
 
-/* Staggered animations */
-.mobile-nav-panel[data-visible="true"] li:nth-child(1) a { transition-delay: 0.2s; }
-.mobile-nav-panel[data-visible="true"] li:nth-child(2) a { transition-delay: 0.25s; }
-.mobile-nav-panel[data-visible="true"] li:nth-child(3) a { transition-delay: 0.3s; }
-.mobile-nav-panel[data-visible="true"] li:nth-child(4) a { transition-delay: 0.35s; }
-.mobile-nav-panel[data-visible="true"] li:nth-child(5) a { transition-delay: 0.4s; }
-.mobile-nav-panel[data-visible="true"] li:nth-child(6) a { transition-delay: 0.45s; }
-.mobile-nav-panel[data-visible="true"] li:nth-child(7) a { transition-delay: 0.5s; }
+/* Remove staggered animations for mobile nav links */
+.mobile-nav-panel[data-visible="true"] li:nth-child(1) a,
+.mobile-nav-panel[data-visible="true"] li:nth-child(2) a,
+.mobile-nav-panel[data-visible="true"] li:nth-child(3) a,
+.mobile-nav-panel[data-visible="true"] li:nth-child(4) a,
+.mobile-nav-panel[data-visible="true"] li:nth-child(5) a,
+.mobile-nav-panel[data-visible="true"] li:nth-child(6) a,
+.mobile-nav-panel[data-visible="true"] li:nth-child(7) a {
+    transition-delay: 0s; /* No delay for sidebar */
+}
 
 /* SYMMETRICAL FOUNTAIN ANIMATION */
 .merge-wave {
@@ -347,28 +374,29 @@ body.menu-open, body.menu-is-open {
 .project-card-apple {
     display: flex;
     flex-direction: row;
-    max-width: 1200px;
+    max-width: 1400px; /* Increased width to prevent heading cutoff */
     width: 100%;
     margin: 40px 0;
     align-items: center;
     gap: 60px;
-    padding: 40px 20px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    transition: transform 0.4s ease;
+    padding: 48px 32px; /* Match About/Certifications */
+    background: linear-gradient(145deg, #ffffff, #f8f8fa); /* Match About/Certifications */
+    border-radius: 24px; /* Match About/Certifications */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04); /* Match About/Certifications */
+    transition: transform 0.4s cubic-bezier(0.25,0.8,0.25,1);
 }
 
 .project-card-apple:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px); /* Match About/Certifications */
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08), 0 6px 16px rgba(0,0,0,0.05); /* Match About/Certifications */
 }
 
 .project-image-apple {
     flex: 1;
     max-width: 500px;
-    border-radius: 12px;
+    border-radius: 16px; /* Smoother image corners */
     overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    box-shadow: none; /* No shadow */
 }
 
 .project-info-apple {
@@ -380,6 +408,7 @@ body.menu-open, body.menu-is-open {
     font-size: 1.75rem;
     font-weight: 600;
     margin-bottom: 12px;
+    word-break: break-word; /* Prevent heading cutoff */
 }
 
 .project-info-apple p {
@@ -404,8 +433,10 @@ body.menu-open, body.menu-is-open {
     .project-card-apple {
         flex-direction: column;
         text-align: center;
-        padding: 20px;
+        padding: 32px 24px; /* Adjusted for mobile */
         gap: 24px;
+        border-radius: 20px; /* Match mobile section-box */
+        max-width: 100%; /* Full width on mobile */
     }
     .project-image-apple {
         width: 100%;
@@ -414,6 +445,7 @@ body.menu-open, body.menu-is-open {
     }
     .project-info-apple h3 {
         font-size: 1.5rem;
+        word-break: break-word; /* Prevent heading cutoff */
     }
     .project-info-apple p {
         font-size: 1rem;
@@ -427,31 +459,47 @@ body.menu-open, body.menu-is-open {
 
 /* Universal Apple-Inspired Section Box */
 .section-box {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    padding: 40px 30px;
-    transition: transform 0.3s ease;
+    background: linear-gradient(145deg, #ffffff, #f8f8fa); /* Match About/Certifications */
+    border-radius: 24px; /* Match About/Certifications */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04); /* Match About/Certifications */
+    padding: 48px 32px; /* Match About/Certifications */
+    transition: transform 0.3s cubic-bezier(0.25,0.8,0.25,1);
+    /* margin-top: 80px; Removed from here to avoid affecting all section-box instances */
 }
 
 .section-box:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08), 0 6px 16px rgba(0,0,0,0.05); /* Match About/Certifications */
 }
 
-/* Cement Border Wrapper */
+/* Projects Heading Styling */
+#projects .section-box h2 {
+    text-align: center; /* Center heading */
+    margin-top: 60px; /* Increased top margin for more blank space */
+    margin-bottom: 16px; /* One line below */
+}
+
+/* Moving Background Wallpaper */
 .cement-border-wrapper {
     width: 100%;
     max-width: none; /* Full-screen on desktop */
-    margin: -60px 0 60px 0; /* Remove left/right margins */
+    margin: -60px 0 60px 0; /* Remove left/right margins, original bottom margin */
     padding: 60px 40px;
     border: none;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/IMG_6799.jpeg');
-    background-size: cover;
+    background-size: 120%; /* Slightly oversized for movement */
     background-position: center;
     background-repeat: no-repeat;
+    animation: backgroundMove 20s ease-in-out infinite; /* Smooth moving background */
     box-sizing: border-box;
     position: relative;
     z-index: 1;
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 0%; }
 }
 
 .cement-border-wrapper section {
@@ -480,17 +528,24 @@ body.menu-open, body.menu-is-open {
     }
     .section {
         padding: 20px 10px;
-        margin-bottom: 20px; /* Reduced spacing for mobile */
+        margin-bottom: 40px; /* Reduced spacing for mobile, now 40px */
     }
     .section-box {
-        padding: 24px 20px;
+        padding: 32px 24px; /* Adjusted for mobile */
+        border-radius: 20px; /* Slightly smaller radius for mobile */
     }
     .cement-border-wrapper {
         width: 100%;
         padding: 32px 20px;
         border-width: none;
-        border-radius: 0; /* Rounded borders on mobile */
+        border-radius: 0; /* No border radius on mobile */
         margin: -40px 0 40px 0; /* Centered on mobile */
+        background-size: 140%; /* Slightly more zoom for mobile */
+        animation: backgroundMove 15s ease-in-out infinite; /* Faster animation for mobile */
+    }
+    #projects .section-box h2 {
+        margin-top: 30px; /* Adjusted for mobile to provide blank space */
+        margin-bottom: 12px; /* Adjusted for mobile */
     }
 }
 
@@ -514,24 +569,53 @@ body.menu-open, body.menu-is-open {
 /* Back to Top Button */
 .back-to-top-button {
     font-size: 0.875rem;
-    color: #a0aec0;
+    color: #ffffff; /* Changed to white */
     text-align: right;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
+    /* Optional: Add a subtle background for better visibility on varying backgrounds */
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    /* padding: 8px 12px; */
+    /* border-radius: 5px; */
+    /* display: inline-block; */
 }
 
 .back-to-top-button:hover {
-    color: #f5f5f7;
-    transform: translateY(-2px);
+    color: #e0e0e0; /* Slightly off-white on hover */
+    transform: translateY(-4px); /* Slightly more pronounced lift */
     text-decoration: underline;
+}
+
+/* Add an upward arrow symbol */
+.back-to-top-button::before {
+    content: '↑ '; /* Unicode arrow symbol and a space */
+    font-size: 1.2em; /* Make the arrow slightly larger */
+    vertical-align: middle; /* Align with text */
+    margin-right: 5px; /* Space between arrow and text */
 }
 
 @media (max-width: 767px) {
     .back-to-top-button {
         text-align: center;
         width: 100%;
+        /* If you added padding/background above, adjust for mobile if needed */
+        /* padding: 12px 0; */
     }
 }
+/* Custom adjustment for h2 text position */
+h2 {
+    padding-top: 40px; /* Adjust this value as needed to move the text down */
+    /* You might also consider adjusting line-height if the text appears too close to the line above */
+    /* line-height: 1.5; */ 
+}
+
+/* If you only want to affect specific h2s, like in a card or section-box */
+/* For example, if it's for headings inside your .section-box */
+.section-box h2 {
+    padding-top: 15px; /* Adds space above the actual text content of the h2 */
+}
+
+/* If you want to make a specific heading slightly lower, for example, your Projects heading */
 #projects .section-box h2 {
-    margin-bottom: 16px; /* One space below heading */
+    padding-top: 10px; /* Example: adds 10px internal space above the Projects heading text */
 }
