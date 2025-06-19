@@ -619,3 +619,75 @@ h2 {
 #projects .section-box h2 {
     padding-top: 10px; /* Example: adds 10px internal space above the Projects heading text */
 }
+/* --- Additions/Modifications Below This Line --- */
+
+/* Moving Background Wallpaper - Enhanced for full coverage and smooth panning */
+.cement-border-wrapper {
+    /* Ensure initial fit covers the entire background and hide overflow */
+    background-size: cover; 
+    overflow: hidden; /* Important to hide parts of the image that go outside */
+    
+    /* Apply the new, more dynamic panning animation */
+    animation: backgroundPan 25s ease-in-out infinite; /* New animation name and longer duration */
+}
+
+/* NEW KEYFRAMES for a continuous 'cover' and pan effect */
+@keyframes backgroundPan {
+    0% {
+        background-position: 0% 0%; /* Start top-left */
+        background-size: 170%; /* Scale up significantly to allow movement */
+    }
+    25% {
+        background-position: 50% 10%; /* Move slightly right and down */
+        background-size: 160%; /* Slight scale change */
+    }
+    50% {
+        background-position: 100% 50%; /* Move to bottom-right */
+        background-size: 175%; /* Slight scale change */
+    }
+    75% {
+        background-position: 20% 80%; /* Move to bottom-left area */
+        background-size: 165%; /* Slight scale change */
+    }
+    100% {
+        background-position: 0% 0%; /* Return to start position */
+        background-size: 170%; /* Return to initial scale */
+    }
+}
+
+/* Responsive tweaks for the background animation on mobile */
+@media (max-width: 768px) {
+    .cement-border-wrapper {
+        animation: backgroundPanMobile 20s ease-in-out infinite; /* Faster animation for mobile */
+    }
+
+    @keyframes backgroundPanMobile {
+        0% {
+            background-position: 0% 0%;
+            background-size: 200%; /* Even larger scale for mobile if needed */
+        }
+        50% {
+            background-position: 100% 100%; /* Move diagonally */
+            background-size: 180%;
+        }
+        100% {
+            background-position: 0% 0%;
+            background-size: 200%;
+        }
+    }
+}
+
+/* Adjust h2 text position (pushes the text slightly down within its own box) */
+h2 {
+    padding-top: 5px; /* Adjust this value as needed */
+}
+
+/* If you want this specific effect only for headings within .section-box elements */
+.section-box h2 {
+    padding-top: 5px; /* Adds space above the actual text content of the h2 */
+}
+
+/* If you want to make the Projects heading specifically lower */
+#projects .section-box h2 {
+    padding-top: 10px; /* Example: adds 10px internal space above the Projects heading text */
+}
