@@ -486,7 +486,7 @@ body.menu-open, body.menu-is-open {
     margin: -60px 0 60px 0; /* Remove left/right margins, original bottom margin */
     padding: 60px 40px;
     border: none;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/IMG_6799.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/images/Nature.avif');
     background-size: 120%; /* Slightly oversized for movement */
     background-position: center;
     background-repeat: no-repeat;
