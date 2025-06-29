@@ -9,19 +9,48 @@
       gtag('js', new Date());
       gtag('config', 'G-11293797905');
     </script>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pandari Chundru - Data Engineer specializing in cloud analytics, big data processing, and machine learning solutions." />
+    <meta name="keywords" content="Data Engineer, Cloud Computing, AWS, Python, Machine Learning, Analytics" />
+    <meta name="author" content="Pandari Chundru" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Pandari Chundru - Data & Cloud Engineer" />
+    <meta property="og:description" content="Skilled in Data, Cloud & Analytics Engineering with expertise in AWS, Python, and Machine Learning" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pandarichundru.vercel.app" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pandari Chundru - Data & Cloud Engineer" />
+    <meta name="twitter:description" content="Skilled in Data, Cloud & Analytics Engineering" />
+    
     <title>Pandari Chundru - Portfolio</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" as="style" />
+    <link rel="preload" href="assets/css/portfolio_styles.css" as="style" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/portfolio_styles.css" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
 </head>
 <body class="antialiased" id="home">
-  <header class="site-header">
-    <a href="#home" class="site-title text-2xl"></a>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded">Skip to main content</a>
+  
+  <header class="site-header" role="banner">
+    <a href="#home" class="site-title text-2xl" aria-label="Pandari Chundru - Home">PC</a>
+    
     <!-- Desktop Navigation -->
-    <nav class="desktop-nav navbar hidden md:flex space-x-2 justify-center">
-      <a href="#home" class="nav-link active">Home</a>
+    <nav class="desktop-nav navbar hidden md:flex space-x-2 justify-center" role="navigation" aria-label="Main navigation">
+      <a href="#home" class="nav-link active" aria-current="page">Home</a>
       <a href="#about" class="nav-link">About</a>
       <a href="#skills" class="nav-link">Skills</a>
       <a href="#projects" class="nav-link">Projects</a>
@@ -29,8 +58,12 @@
       <a href="#certifications" class="nav-link">Certifications</a>
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
+    
     <!-- Mobile Hamburger Button -->
-    <button class="menu-toggle-button md:hidden" aria-controls="mobileNavPanel" aria-expanded="false" aria-label="Toggle Menu">
+    <button class="menu-toggle-button md:hidden" 
+            aria-controls="mobileNavPanel" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation menu">
       <span class="hamburger-icon-container">
         <span class="hamburger-bar hamburger-bar--top"></span>
         <span class="hamburger-bar hamburger-bar--middle"></span>
@@ -40,7 +73,11 @@
   </header>
 
   <!-- Mobile Slide-out Navigation -->
-  <nav class="mobile-nav-panel" id="mobileNavPanel" data-visible="false">
+  <nav class="mobile-nav-panel" 
+       id="mobileNavPanel" 
+       data-visible="false" 
+       role="navigation" 
+       aria-label="Mobile navigation">
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -52,191 +89,453 @@
     </ul>
   </nav>
 
-  <section class="hero-section">
-    <div class="fade-in text-center">
-      <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight">Pandari Chundru</h1>
-      <p class="text-xl md:text-2xl mb-8 text-gray-300">Skilled in Data, Cloud & Analytics Engineering</p>
-      <div class="hero-buttons-container md:space-x-4">
-        <a href="#projects" class="bg-white text-black py-3 px-7 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 pulse-on-load hover-bounce text-lg inline-block">View My Work</a>
-        <a href="../assets/documents/Pandari Chundru CV.pdf" class="bg-white text-black py-3 px-7 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 pulse-on-load hover-bounce text-lg inline-block mt-4 md:mt-0"
-          onclick="gtag('event', 'download_cv', { event_category: 'engagement', event_label: 'Pandari Chundru CV.pdf' })">
-          Download CV
-        </a>
-      </div>
-      <div class="flex justify-center space-x-8 mt-6">
-        <a href="https://www.linkedin.com/in/pandari-chundru-200bb2205" target="_blank" rel="noopener noreferrer" class="text-4xl text-white hover:text-blue-400 social-icon"><i class='bx bxl-linkedin-square'></i></a>
-        <a href="https://github.com/pandarichundru" target="_blank" rel="noopener noreferrer" class="text-4xl text-white hover:text-gray-300 social-icon"><i class='bx bxl-github'></i></a>
-        <a href="https://www.kaggle.com/pandarichundru" target="_blank" rel="noopener noreferrer" class="social-icon" style="display: inline-block; background-color: white; border-radius: 4px; padding: 4px;">
-          <img src="https://www.svgrepo.com/show/330763/kaggle.svg" alt="Kaggle" style="width: 32px; height: 32px;" />
-        </a>
-      </div>
-      <!-- LIVE CLOCK -->
-      <div class="mt-6 text-white text-xl font-semibold tracking-widest text-center" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-        <div id="datetime"></div>
-      </div>
-    </div>
-  </section>
-     <div class="cement-border-wrapper">
-     <section id="about" class="section">
-    <div class="section-box fade-in">
-      <h2 class="text-4xl font-bold mb-10 text-center tracking-tight fade-in">About Me</h2>
-      <div class="fade-in text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto about-text">
-        <p>I'm a results-driven data enthusiast with expertise in big data analytics, data visualization, and cloud-based data processing. I hold an MSc in Computer Science from the University of East London (Distinction) and a B.Tech from Swarnandhra College. Proficient in Python, SQL, and PySpark, I specialize in building scalable data pipelines using AWS services like S3, and Lambda. My passion lies in leveraging data to drive insights through interactive dashboards with Tableau and Power BI.</p>
-      </div>
-    </div>
-  </section>
-  
-  <section id="skills" class="section bg-gray-100">
-    <div class="section-box fade-in">
-      <h2 class="text-4xl font-bold mb-12 text-center tracking-tight fade-in">Skills</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="skill-card fade-in">
-          <div class="text-5xl mb-4 text-blue-600"><i class='bx bx-code-alt'></i></div>
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Programming</h3>
-          <p class="text-gray-600">Python, SQL, PySpark, HTML5, CSS</p>
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section" role="banner">
+      <div class="fade-in text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight text-gradient">
+          Pandari Chundru
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-gray-300" data-typewriter>
+          Skilled in Data, Cloud & Analytics Engineering
+        </p>
+        
+        <div class="hero-buttons-container md:space-x-4">
+          <a href="#projects" 
+             class="bg-white text-black py-3 px-7 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 pulse-on-load hover-bounce text-lg inline-block glass-effect">
+            View My Work
+          </a>
+          <a href="assets/documents/Pandari Chundru CV.pdf" 
+             class="bg-white text-black py-3 px-7 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300 pulse-on-load hover-bounce text-lg inline-block mt-4 md:mt-0 glass-effect"
+             onclick="gtag('event', 'download_cv', { event_category: 'engagement', event_label: 'Pandari Chundru CV.pdf' })"
+             download>
+            Download CV
+          </a>
         </div>
-        <div class="skill-card fade-in" style="animation-delay: 0.1s;">
-          <div class="text-5xl mb-4 text-green-600"><i class='bx bx-data'></i></div>
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Data Tools</h3>
-          <p class="text-gray-600">Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch</p>
+        
+        <div class="flex justify-center space-x-8 mt-6" role="list">
+          <a href="https://www.linkedin.com/in/pandari-chundru-200bb2205" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="text-4xl text-white hover:text-blue-400 social-icon hover-lift"
+             aria-label="LinkedIn Profile">
+            <i class='bx bxl-linkedin-square'></i>
+          </a>
+          <a href="https://github.com/pandarichundru" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="text-4xl text-white hover:text-gray-300 social-icon hover-lift"
+             aria-label="GitHub Profile">
+            <i class='bx bxl-github'></i>
+          </a>
+          <a href="https://www.kaggle.com/pandarichundru" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="social-icon hover-lift" 
+             aria-label="Kaggle Profile"
+             style="display: inline-block; background-color: white; border-radius: 4px; padding: 4px;">
+            <img src="https://www.svgrepo.com/show/330763/kaggle.svg" 
+                 alt="Kaggle" 
+                 style="width: 32px; height: 32px;" 
+                 loading="lazy" />
+          </a>
         </div>
-        <div class="skill-card fade-in" style="animation-delay: 0.2s;">
-          <div class="text-5xl mb-4 text-purple-600"><i class='bx bx-cloud'></i></div>
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Cloud & Visualization</h3>
-          <p class="text-gray-600">AWS (Redshift, S3, Lambda), Tableau, Power BI, Matplotlib, Seaborn</p>
+        
+        <!-- Enhanced Live Clock -->
+        <div class="mt-6 text-white text-xl font-semibold tracking-widest text-center glass-effect inline-block px-6 py-3 rounded-full" 
+             style="font-family: var(--font-mono);">
+          <div id="datetime" aria-live="polite" aria-label="Current time"></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects" class="section bg-white">
-    <h2 class="text-4xl font-bold text-center mb-12 tracking-tight fade-in">Projects</h2>
-    <div class="project-card-apple fade-in">
-      <img src="../assets/images/brain-tumour.png" alt="Brain Tumour Classification" class="project-image-apple" />
-      <div class="project-info-apple">
-        <h3>Brain Tumour Classification</h3>
-        <p>Built a deep learning model (EfficientNetB0) for MRI image classification with 95%+ accuracy, compared against CNN and MLP baselines.</p>
-        <a href="https://github.com/pandarichundru/Brain-Tumor-" target="_blank">View Project →</a>
-      </div>
-    </div>
-    <div class="project-card-apple fade-in">
-      <img src="../assets/images/cloud-streaming.png" alt="Cloud-Based Movie Streaming" class="project-image-apple" />
-      <div class="project-info-apple">
-        <h3>Cloud-Based Movie Streaming</h3>
-        <p>Built a scalable movie streaming platform using AWS (EC2, S3, CloudFront). Added API Gateway for secure access and integration.</p>
-        <a href="https://drive.google.com/file/d/1TVKOP7DoWHsD4o2rYQlDXdDZbi4LFo8r/view?usp=sharing" target="_blank">View Project →</a>
-      </div>
-    </div>
-    <div class="project-card-apple fade-in">
-      <img src="../assets/images/big-data.png" alt="Big Data Analysis" class="project-image-apple" />
-      <div class="project-info-apple">
-        <h3>Big Data Analysis</h3>
-        <p>Processed massive log data with Apache Spark. Used PySpark & SQL for analytics and created rich data visualizations.</p>
-        <a href="https://github.com/pandarichundru/spark-dataframe-rdd-analytics" target="_blank">View Project →</a>
-      </div>
-    </div>
-  </section>
+    <div class="cement-border-wrapper" style="background-image: url('assets/images/Nature.avif');">
+      <!-- About Section -->
+      <section id="about" class="section">
+        <div class="section-box fade-in">
+          <h2 class="text-4xl font-bold mb-10 text-center tracking-tight fade-in">About Me</h2>
+          <div class="fade-in-left text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto about-text">
+            <p>I'm a results-driven data enthusiast with expertise in big data analytics, data visualization, and cloud-based data processing. I hold an MSc in Computer Science from the University of East London (Distinction) and a B.Tech from Swarnandhra College.</p>
+            <br>
+            <p>Proficient in Python, SQL, and PySpark, I specialize in building scalable data pipelines using AWS services like S3 and Lambda. My passion lies in leveraging data to drive insights through interactive dashboards with Tableau and Power BI.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Skills Section -->
+      <section id="skills" class="section bg-gray-100">
+        <div class="section-box fade-in">
+          <h2 class="text-4xl font-bold mb-12 text-center tracking-tight fade-in">Skills & Expertise</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="skill-card fade-in-left">
+              <div class="text-5xl mb-4 text-blue-600"><i class='bx bx-code-alt'></i></div>
+              <h3 class="text-xl font-semibold mb-2 text-gray-800">Programming</h3>
+              <p class="text-gray-600">Python, SQL, PySpark, HTML5, CSS, JavaScript</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Python</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">SQL</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">PySpark</span>
+              </div>
+            </div>
+            
+            <div class="skill-card fade-in" style="animation-delay: 0.1s;">
+              <div class="text-5xl mb-4 text-green-600"><i class='bx bx-data'></i></div>
+              <h3 class="text-xl font-semibold mb-2 text-gray-800">Data Science</h3>
+              <p class="text-gray-600">Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Machine Learning</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Deep Learning</span>
+              </div>
+            </div>
+            
+            <div class="skill-card fade-in-right" style="animation-delay: 0.2s;">
+              <div class="text-5xl mb-4 text-purple-600"><i class='bx bx-cloud'></i></div>
+              <h3 class="text-xl font-semibold mb-2 text-gray-800">Cloud & Visualization</h3>
+              <p class="text-gray-600">AWS (Redshift, S3, Lambda), Tableau, Power BI, Matplotlib, Seaborn</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">AWS</span>
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Tableau</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <section id="experience" class="section bg-gray-100">
-    <div class="section-box fade-in">
-      <h2 class="text-4xl font-bold mb-12 text-center tracking-tight fade-in">Experience</h2>
-      <div class="space-y-8">
-        <div class="experience-card card-base fade-in">
-          <h3 class="text-2xl font-semibold mb-1 text-gray-800">IT Support Intern, University of East London</h3>
-          <p class="text-sm text-blue-600 mb-3"><a href="https://drive.google.com/file/d/1T6I5TaLp-OdKFP9ZGbfcJguycBvPblOn/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="hover:underline">View Certificate</a></p>
-          <p class="text-gray-500 mb-3 text-sm">Jun 2024 - Jan 2025 | London, UK</p>
-          <p class="text-gray-700 leading-relaxed">Provided technical support, managed CRM databases, and implemented an efficient ticketing system. Automated tasks and created dashboards for data-driven insights.</p>
+      <!-- Projects Section -->
+      <section id="projects" class="section bg-white">
+        <h2 class="text-4xl font-bold text-center mb-12 tracking-tight fade-in">Featured Projects</h2>
+        
+        <article class="project-card-apple fade-in-left">
+          <img src="assets/images/brain-tumour.png" 
+               alt="Brain Tumour Classification Project Interface" 
+               class="project-image-apple" 
+               loading="lazy" />
+          <div class="project-info-apple">
+            <h3>Brain Tumour Classification</h3>
+            <p>Built a deep learning model using EfficientNetB0 for MRI image classification achieving 95%+ accuracy. Implemented comprehensive comparison against CNN and MLP baselines with detailed performance analysis.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Deep Learning</span>
+              <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Computer Vision</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">TensorFlow</span>
+            </div>
+            <a href="https://github.com/pandarichundru/Brain-Tumor-" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="inline-block mt-4 hover-lift">
+              View Project →
+            </a>
+          </div>
+        </article>
+        
+        <article class="project-card-apple fade-in-right">
+          <img src="assets/images/cloud-streaming.png" 
+               alt="Cloud-Based Movie Streaming Platform Architecture" 
+               class="project-image-apple" 
+               loading="lazy" />
+          <div class="project-info-apple">
+            <h3>Cloud-Based Movie Streaming Platform</h3>
+            <p>Designed and implemented a scalable movie streaming platform using AWS services including EC2, S3, and CloudFront. Integrated API Gateway for secure access control and seamless user authentication.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Cloud Architecture</span>
+              <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Streaming</span>
+            </div>
+            <a href="https://drive.google.com/file/d/1TVKOP7DoWHsD4o2rYQlDXdDZbi4LFo8r/view?usp=sharing" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="inline-block mt-4 hover-lift">
+              View Project →
+            </a>
+          </div>
+        </article>
+        
+        <article class="project-card-apple fade-in-left">
+          <img src="assets/images/big-data.png" 
+               alt="Big Data Analysis Dashboard" 
+               class="project-image-apple" 
+               loading="lazy" />
+          <div class="project-info-apple">
+            <h3>Big Data Analytics Pipeline</h3>
+            <p>Processed massive log datasets using Apache Spark and PySpark. Implemented complex SQL analytics queries and created comprehensive data visualizations for business intelligence insights.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Apache Spark</span>
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Big Data</span>
+              <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Analytics</span>
+            </div>
+            <a href="https://github.com/pandarichundru/spark-dataframe-rdd-analytics" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="inline-block mt-4 hover-lift">
+              View Project →
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section bg-gray-100">
+        <div class="section-box fade-in">
+          <h2 class="text-4xl font-bold mb-12 text-center tracking-tight fade-in">Professional Experience</h2>
+          <div class="space-y-8">
+            <article class="experience-card card-base fade-in-left">
+              <h3 class="text-2xl font-semibold mb-1 text-gray-800">IT Support Intern</h3>
+              <p class="text-lg text-blue-600 mb-2">University of East London</p>
+              <p class="text-sm text-blue-600 mb-3">
+                <a href="https://drive.google.com/file/d/1T6I5TaLp-OdKFP9ZGbfcJguycBvPblOn/view?usp=drivesdk" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="hover:underline hover-lift">
+                  View Certificate
+                </a>
+              </p>
+              <p class="text-gray-500 mb-3 text-sm">Jun 2024 - Jan 2025 | London, UK</p>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Provided comprehensive technical support and managed CRM databases for improved operational efficiency. 
+                Implemented an efficient ticketing system and automated routine tasks, creating interactive dashboards 
+                for data-driven decision making.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Technical Support</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">CRM Management</span>
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Process Automation</span>
+              </div>
+            </article>
+            
+            <article class="experience-card card-base fade-in-right" style="animation-delay: 0.1s;">
+              <h3 class="text-2xl font-semibold mb-1 text-gray-800">AWS Cloud Data Engineer Intern</h3>
+              <p class="text-lg text-blue-600 mb-2">Cognizant</p>
+              <p class="text-sm text-blue-600 mb-3">
+                <a href="https://drive.google.com/file/d/1dYFt7A93mL3bY9ihxOfDNdomRK7MS4fi/view?usp=drivesdk" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="hover:underline hover-lift">
+                  View Certificate
+                </a>
+              </p>
+              <p class="text-gray-500 mb-3 text-sm">Mar 2022 - Aug 2022 | Hyderabad, India</p>
+              <p class="text-gray-700 leading-relaxed mb-4">
+                Designed secure AWS infrastructure with VPCs and RDS implementations. Earned Databricks certification 
+                and built robust data pipelines for big data analytics, focusing on scalable cloud solutions.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">AWS</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Data Engineering</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Databricks</span>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="experience-card card-base fade-in" style="animation-delay: 0.1s;">
-          <h3 class="text-2xl font-semibold mb-1 text-gray-800">AWS Cloud Data Engineer Intern, Cognizant</h3>
-          <p class="text-sm text-blue-600 mb-3"><a href="https://drive.google.com/file/d/1dYFt7A93mL3bY9ihxOfDNdomRK7MS4fi/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="hover:underline">View Certificate</a></p>
-          <p class="text-gray-500 mb-3 text-sm">Mar 2022 - Aug 2022 | Hyderabad, India</p>
-          <p class="text-gray-700 leading-relaxed">Designed secure AWS infrastructure with VPCs and RDS. Earned Databricks certification and built data pipelines for big data analytics.</p>
+      </section>
+
+      <!-- Certifications Section -->
+      <section id="certifications" class="section">
+        <div class="section-box fade-in">
+          <h2 class="text-4xl font-bold mb-12 text-center tracking-tight fade-in">Certifications & Achievements</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <article class="certification-card card-base fade-in-left">
+              <div class="flex items-center mb-4">
+                <div class="text-3xl text-orange-500 mr-4"><i class='bx bxl-aws'></i></div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">AWS Cloud Practitioner</h3>
+                  <p class="text-sm text-gray-500">Amazon Web Services</p>
+                </div>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">Certified in AWS cloud fundamentals, demonstrating knowledge of cloud concepts, security, and core AWS services.</p>
+              <a href="https://drive.google.com/file/d/1ljBN5y-plLHYtH7MgDF-cW3y5qxHjy61/view?usp=drivesdk" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300 group hover-lift">
+                View Certificate <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span>
+              </a>
+            </article>
+            
+            <article class="certification-card card-base fade-in-right" style="animation-delay: 0.1s;">
+              <div class="flex items-center mb-4">
+                <div class="text-3xl text-red-500 mr-4"><i class='bx bx-data'></i></div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">Data Engineering with Databricks</h3>
+                  <p class="text-sm text-gray-500">Databricks</p>
+                </div>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">Expertise in big data processing and analytics workflows using Databricks platform and Apache Spark.</p>
+              <a href="https://drive.google.com/file/d/1KNXkySbuZST0RHrDJxtWn5DuWp5Yvzk2/view?usp=sharing" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300 group hover-lift">
+                View Certificate <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span>
+              </a>
+            </article>
+            
+            <article class="certification-card card-base fade-in-left" style="animation-delay: 0.2s;">
+              <div class="flex items-center mb-4">
+                <div class="text-3xl text-orange-500 mr-4"><i class='bx bxl-aws'></i></div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">AWS Cloud Virtual Internship</h3>
+                  <p class="text-sm text-gray-500">Amazon Web Services</p>
+                </div>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">Practical experience in AWS infrastructure design, deployment, and management of cloud services.</p>
+              <a href="https://drive.google.com/file/d/1OhETfPQfhE6TDcdvIDToCfYtQi42aYH1/view?usp=sharing" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300 group hover-lift">
+                View Certificate <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span>
+              </a>
+            </article>
+            
+            <article class="certification-card card-base fade-in-right" style="animation-delay: 0.3s;">
+              <div class="flex items-center mb-4">
+                <div class="text-3xl text-blue-500 mr-4"><i class='bx bx-brain'></i></div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">AWS Academy ML Foundations</h3>
+                  <p class="text-sm text-gray-500">AWS Academy</p>
+                </div>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">Foundational knowledge in machine learning concepts and implementation on AWS cloud platform.</p>
+              <a href="https://www.credly.com/badges/6fd6ced7-ac10-4502-8cd5-d7f9eac92304/public_url" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300 group hover-lift">
+                View Badge <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span>
+              </a>
+            </article>
+          </div>
         </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section bg-gray-100">
+        <div class="section-box fade-in">
+          <h2 class="text-4xl font-bold mb-10 text-center tracking-tight fade-in">Let's Connect</h2>
+          <div class="fade-in text-center max-w-2xl mx-auto">
+            <p class="text-lg mb-6 text-gray-700">
+              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. 
+              Let's build something amazing together.
+            </p>
+            
+            <div class="contact-info mb-8 space-y-2">
+              <p class="text-lg">
+                <strong>Phone:</strong> 
+                <a href="tel:+917989076668" 
+                   class="text-blue-600 hover:underline hover:text-blue-700 transition-colors duration-300 hover-lift">
+                  +91 79890 76668
+                </a>
+              </p>
+              <p class="text-lg">
+                <strong>Email:</strong> 
+                <a href="mailto:pandarichundru@gmail.com" 
+                   class="text-blue-600 hover:underline hover:text-blue-700 transition-colors duration-300 hover-lift">
+                  pandarichundru@gmail.com
+                </a>
+              </p>
+            </div>
+            
+            <form action="https://formspree.io/f/mjkwrbqy" 
+                  method="POST" 
+                  class="contact__form max-w-lg mx-auto space-y-5"
+                  novalidate>
+              <div class="form-group">
+                <input type="text" 
+                       name="name" 
+                       placeholder="Your Name" 
+                       required 
+                       class="w-full p-3.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                       aria-label="Your name" />
+              </div>
+              
+              <div class="form-group">
+                <input type="email" 
+                       name="email" 
+                       placeholder="Your Email" 
+                       required 
+                       class="w-full p-3.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                       aria-label="Your email address" />
+              </div>
+              
+              <div class="form-group">
+                <input type="text" 
+                       name="subject" 
+                       placeholder="Subject" 
+                       class="w-full p-3.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                       aria-label="Message subject" />
+              </div>
+              
+              <div class="form-group">
+                <textarea name="message" 
+                          rows="5" 
+                          placeholder="Your Message" 
+                          required 
+                          class="w-full p-3.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                          aria-label="Your message"></textarea>
+              </div>
+              
+              <button type="submit" 
+                      class="button bg-blue-600 text-white py-3.5 px-8 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 text-lg hover-lift">
+                Send Message
+              </button>
+            </form>
+            
+            <div class="flex justify-center space-x-8 mt-12" role="list">
+              <a href="https://www.linkedin.com/in/pandari-chundru-200bb2205" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="text-4xl text-gray-600 hover:text-blue-600 social-icon hover-lift"
+                 aria-label="LinkedIn Profile">
+                <i class='bx bxl-linkedin-square'></i>
+              </a>
+              <a href="https://github.com/pandarichundru" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="text-4xl text-gray-600 hover:text-gray-900 social-icon hover-lift"
+                 aria-label="GitHub Profile">
+                <i class='bx bxl-github'></i>
+              </a>
+              <a href="https://www.kaggle.com/pandarichundru" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="social-icon hover-lift" 
+                 aria-label="Kaggle Profile"
+                 style="display: inline-block; background-color: white; border-radius: 4px; padding: 4px;">
+                <img src="https://www.svgrepo.com/show/330763/kaggle.svg" 
+                     alt="Kaggle" 
+                     style="width: 32px; height: 32px;" 
+                     loading="lazy" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Enhanced Merge Wave Animation -->
+    <div class="merge-wave-below">
+      <div class="merge-wave">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
       </div>
     </div>
-  </section>
+  </main>
 
-  <section id="certifications" class="section">
-    <div class="section-box fade-in">
-      <h2 class="text-4xl font-bold mb-12 text-center tracking-tight fade-in">Certifications</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="certification-card card-base fade-in">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">AWS Cloud Practitioner</h3>
-          <p class="text-gray-600 text-sm mb-2">Certified in AWS cloud fundamentals.</p>
-          <a href="https://drive.google.com/file/d/1ljBN5y-plLHYtH7MgDF-cW3y5qxHjy61/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300 group">View Certificate <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
-        </div>
-        <div class="certification-card card-base fade-in" style="animation-delay: 0.1s;">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">Data Engineering with Databricks</h3>
-          <p class="text-gray-600 text-sm mb-2">Expertise in big data processing and analytics workflows.</p>
-          <a href="https://drive.google.com/file/d/1KNXkySbuZST0RHrDJxtWn5DuWp5Yvzk2/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300 group">View Certificate <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
-        </div>
-        <div class="certification-card card-base fade-in" style="animation-delay: 0.2s;">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">AWS Cloud Virtual Internship Program</h3>
-          <p class="text-gray-600 text-sm mb-2">Practical experience in AWS infrastructure and services.</p>
-          <a href="https://drive.google.com/file/d/1OhETfPQfhE6TDcdvIDToCfYtQi42aYH1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300 group">View Certificate <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
-        </div>
-        <div class="certification-card card-base fade-in" style="animation-delay: 0.3s;">
-          <h3 class="text-xl font-semibold mb-2 text-gray-800">AWS Academy Machine Learning Foundations</h3>
-          <p class="text-gray-600 text-sm mb-2">Foundational knowledge in machine learning on AWS.</p>
-          <a href="https://www.credly.com/badges/6fd6ced7-ac10-4502-8cd5-d7f9eac92304/public_url" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300 group">View Badge <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">→</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section bg-gray-100">
-    <div class="section-box fade-in">
-      <h2 class="text-4xl font-bold mb-10 text-center tracking-tight fade-in">Get in Touch</h2>
-      <div class="fade-in text-center max-w-2xl mx-auto">
-        <p class="text-lg mb-6 text-gray-700">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out.</p>
-        <div class="contact-info mb-8 space-y-2">
-          <p class="text-lg"><strong>Phone:</strong> <a href="tel:+917989076668" class="text-blue-600 hover:underline hover:text-blue-700 transition-colors duration-300">+91 79890 76668</a></p>
-          <p class="text-lg"><strong>Email:</strong> <a href="mailto:pandarichundru@gmail.com" class="text-blue-600 hover:underline hover:text-blue-700 transition-colors duration-300">pandarichundru@gmail.com</a></p>
-        </div>
-        <form action="https://formspree.io/f/mjkwrbqy" method="POST" class="contact__form max-w-lg mx-auto space-y-5">
-          <input type="text" name="name" placeholder="Your Name" required class="w-full p-3.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" />
-          <input type="email" name="email" placeholder="Your Email" required class="w-full p-3.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" />
-          <input type="text" name="subject" placeholder="Subject" class="w-full p-3.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300" />
-          <textarea name="message" rows="5" placeholder="Your Message" required class="w-full p-3.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"></textarea>
-          <button type="submit" class="button bg-blue-600 text-white py-3.5 px-8 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 text-lg">Send Message</button>
-        </form>
-        <div class="flex justify-center space-x-8 mt-12">
-          <a href="https://www.linkedin.com/in/pandari-chundru-200bb2205" target="_blank" rel="noopener noreferrer" class="text-4xl text-gray-600 hover:text-blue-600 social-icon"><i class='bx bxl-linkedin-square'></i></a>
-          <a href="https://github.com/pandarichundru" target="_blank" rel="noopener noreferrer" class="text-4xl text-gray-600 hover:text-gray-900 social-icon"><i class='bx bxl-github'></i></a>
-          <a href="https://www.kaggle.com/pandarichundru" target="_blank" rel="noopener noreferrer" class="social-icon" style="display: inline-block; background-color: white; border-radius: 4px; padding: 4px;"><img src="https://www.svgrepo.com/show/330763/kaggle.svg" alt="Kaggle" style="width: 32px; height: 32px;" /></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="bg-black text-gray-400 py-8 text-sm flex flex-col md:flex-row items-center justify-between px-6">
+  <footer class="bg-black text-gray-400 py-8 text-sm flex flex-col md:flex-row items-center justify-between px-6" role="contentinfo">
     <p>© 2025 Pandari Chundru. All rights reserved.</p>
-    <a href="#home" class="back-to-top-button mt-4 md:mt-0">Back to Top</a>
+    <a href="#home" class="back-to-top-button mt-4 md:mt-0" aria-label="Back to top">Back to Top</a>
   </footer>
-  </div>
-   <div class="merge-wave-below">
-    <div class="merge-wave">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-  </div>
 
   <script src="assets/js/portfolio_script.js"></script>
 </body>
